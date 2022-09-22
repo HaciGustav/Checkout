@@ -1,0 +1,8 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+.product-info img:nth-child(1){
+    width: 100%;
+    
+}
