@@ -6,3 +6,15 @@
     width: 100%;
     
 }
+.payment .prices{
+    border-top: 1px solid;
+    margin-top: 0.5rem;
+}
+footer{
+    margin: auto;
+}
+footer img{
+    width: 2rem;
+    margin: auto;
+
+}
