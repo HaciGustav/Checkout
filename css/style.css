@@ -1,0 +1,12 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.product-info img {
+  width: 100%;
+}
+.payment .prices {
+  border-top: 1px solid #000;
+  margin-top: 0.5rem;
+}
