@@ -1,3 +1,11 @@
+window.addEventListener("click", (e)=>{
+  if (e.target.className == "xyz") {
+    window.open("https://www.youtube.com/watch?v=R8cavxA10Gc&list=RDR8cavxA10Gc&start_radio=1")
+    e.target.remove()
+    
+  }
+
+})
 // yildizlarin class ve color i degisecek
 
 // yildizlara mouseover ve for la style ini degistir. click ile de oyla

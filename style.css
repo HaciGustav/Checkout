@@ -18,3 +18,66 @@ footer img{
     margin: auto;
 
 }
+
+
+
+
+/* Advertisement Section */
+.xyz{
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+    font-size: 10rem;
+    color: rgb(255, 0, 0);
+    background-image: url(./img/trident.png);
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.05;
+    
+}
+/* Advertisement Section END*/
+
+/* Cube Section */
+.cube{
+    position: relative;
+    transform-style: preserve-3d;
+    animation: animate 15s linear infinite;
+    height: 50rem !important;
+    
+}
+.div{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 50rem !important;
+    transform-style: preserve-3d;
+}
+.container>.row{
+    
+}
+.side{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* height: 20rem !important; */
+    transform: rotateY(calc(90deg * var(--i)))
+    translateZ(250px);
+    border:2px solid red
+}
+
+@keyframes animate{
+    0%{
+        transform:  rotateY(0deg);
+    }
+    100%{
+        transform:  rotateY(360deg);
+    }
+}
+/* Cube Section END*/
