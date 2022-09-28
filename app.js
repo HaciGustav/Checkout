@@ -49,7 +49,9 @@ const iconActivities = (btn) => {
     const quant = btn.closest('.card-div').querySelector('.quantity');
     if (btn.classList.contains('fa-plus')) {
         cardDiv.querySelector('.quantity').innerText++;
+
         productTotalCalc(btn);
+        cartTotalCalc(btn);
         // console.log(productList);
 
         if (quant.innerText > 1) {
@@ -65,6 +67,7 @@ const iconActivities = (btn) => {
             cardDiv.querySelector('.decrease-trash').className =
                 'fa-solid fa-minus decrease-trash';
             productTotalCalc(btn);
+            cartTotalCalc(btn);
         }
     } else if (
         btn.classList.contains('remove') ||
@@ -76,6 +79,7 @@ const iconActivities = (btn) => {
         );
         console.log(productList);
         productTotalCalc(btn);
+        cartTotalCalc(btn);
     }
 };
 
@@ -140,6 +144,22 @@ const createProductOnCart = (
         productShipping.innerText = `It will be shipped within an estimated ${shippingDays} working days.`;
     }
     cardBody.appendChild(productShipping);
+    //!sonradan eklendi "price bölümü"
+
+    const priceSection = document.createElement('p');
+    priceSection.className = 'card-text';
+    cardBody.appendChild(priceSection);
+
+    const priceText = document.createElement('span');
+    priceText.innerText = 'Price: $';
+    priceSection.appendChild(priceText);
+
+    const price = document.createElement('span');
+    price.className = 'price';
+    price.innerText = productPrice;
+    priceSection.appendChild(price);
+
+    //!sonradan eklendi "price bölümü"
 
     // Increase or Decrease the number of products
     const numberOfProducts = document.createElement('p');
@@ -197,7 +217,7 @@ document.querySelector('main').addEventListener('click', (e) => {
         const productPrice = e.target
             .closest('.cart-ul')
             .querySelector('.product-price').innerText;
-
+        cartTotalCalc(e.target);
         if (!productList.includes(e.target.getAttribute('id'))) {
             createProductOnCart(
                 e.target,
@@ -255,9 +275,27 @@ document.querySelector('main').addEventListener('click', (e) => {
 const productTotalCalc = (btn) => {
     const cards = document.querySelectorAll('.card-div');
     cards.forEach((item) => {
-        item.querySelector('.product-total').innerText *=
-            item.querySelector('.quantity').innerText;
+        item.querySelector('.product-total').innerText = (
+            item.querySelector('.price').innerText *
+            item.querySelector('.quantity').innerText
+        ).toFixed(2);
 
         console.log(item.querySelector('.product-total').innerText);
     });
+};
+
+const cartTotalCalc = (btn) => {
+    const cart = btn.closest('.cart');
+    const cards = document.querySelectorAll('.card-div');
+    const subtotal = document.querySelector('.subtotal-price');
+
+    if (cards) {
+        cards.forEach((item) => {
+            //subtotal
+            subtotal.innerText =
+                Number(item.querySelector('.product-total').innerText) +
+                Number(subtotal.innerText);
+            console.log(subtotal);
+        });
+    }
 };
