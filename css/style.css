@@ -36,3 +36,6 @@
 .quantity {
   margin-right: 0.8rem;
 }
+footer a {
+  display: inline-block;
+}
